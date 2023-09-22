@@ -135,20 +135,23 @@ function App() {
         <div className="numerosAleatorios">
           <h1>Números aleatorios</h1>
 
-          <div className='matrix'>
-            {randomNumbers.map((row) => {
-              return <div
-                key={row}
-                className='row'>
-                {row.map((item) => {
-                  return <div
-                    key={item}
-                    className='item'>
-                    {item}
-                  </div>
-                })}
-              </div>
-            })}
+          <div className='matrixContainer'>
+            <div className='matrix'>
+              {randomNumbers.map((row, index) => {
+                return <div
+                  key={index}
+                  className='row'>
+                  <h4>{index}</h4>
+                  {row.map((item) => {
+                    return <div
+                      key={item}
+                      className='item'>
+                      {item}
+                    </div>
+                  })}
+                </div>
+              })}
+            </div>
           </div>
 
         </div>
