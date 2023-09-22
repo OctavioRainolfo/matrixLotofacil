@@ -93,8 +93,6 @@ function App() {
               }
             }}
             placeholder='Informe cinco números fixos'
-            min='0'
-            max='25'
           />
 
           <button
@@ -105,12 +103,13 @@ function App() {
 
         <div className='inputNumeroTabelas'>
           <input ref={inputTabelaRef}
-            type="number"
             placeholder='Informe o número de jogos'
-            min='0'
           />
           <button onClick={() => {
-            setNumeroTabelas(inputTabelaRef.current.value);
+            if (inputTabelaRef.current.value < 1 || inputTabelaRef.current.value === '') {
+              return;
+            }
+            setNumeroTabelas(parseInt(inputTabelaRef.current.value));
             inputTabelaRef.current.value = '';
           }
           }>Salvar</button>
